@@ -6,6 +6,10 @@ scalaVersion := "2.11.7"
 
 val scroogeCore = "com.twitter" %% "scrooge-core" % "4.0.0"
 
+resolvers ++= Seq(
+  "twitter" at "http://maven.twttr.com",
+  "sonatype" at "https://oss.sonatype.org/content/groups/public")
+
 libraryDependencies ++= Seq(
   "org.apache.thrift" % "libthrift" % "0.9.2",
   "com.twitter" %% "finagle-thrift" % "6.28.0",
