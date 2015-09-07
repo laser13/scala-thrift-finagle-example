@@ -19,8 +19,8 @@ class MicroService(implicit inj: Injector)
 
   /**
    * Add tag to row
-   * @param rowId identification row
-   * @param tagId identification tag
+   * @param rowId identifier row
+   * @param tagId identifier tag
    * @return
    */
   override def addTag(rowId: Int, tagId: Int): Future[Boolean] = {
@@ -40,8 +40,8 @@ class MicroService(implicit inj: Injector)
 
   /**
    * Remove tag from row
-   * @param rowId identification row
-   * @param tagId identification tag
+   * @param rowId identifier row
+   * @param tagId identifier tag
    * @return
    */
   override def removeTag(rowId: Int, tagId: Int): Future[Boolean] = Future.value {
@@ -51,7 +51,7 @@ class MicroService(implicit inj: Injector)
 
   /**
    * Finds all the rows that have at least one of these tags
-   * @param tagIds identifications tags
+   * @param tagIds identifiers tags
    * @return
    */
   override def filterRowsByTags(tagIds: Set[Int]): Future[Set[ThriftRow]] = Future.value {
@@ -68,7 +68,7 @@ class MicroService(implicit inj: Injector)
 
   /**
    * Finds all tags belonging to the row
-   * @param rowId identification row
+   * @param rowId identifier row
    * @return
    */
   override def filterTagsByRow(rowId: Int): Future[Set[ThriftTag]] = Future.value {

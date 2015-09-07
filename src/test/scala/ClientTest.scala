@@ -129,6 +129,10 @@ class ClientTest extends FunSpec with Matchers with BeforeAndAfterAll{
         Await.result(client.filterRowsByTags(Set(tagId1, tagId3))).map(x => x._1) should be('empty)
       }
 
+      it("non exists tags ids") {
+        Await.result(client.filterRowsByTags(Set(-1, -2))).map(x => x._1) should be('empty)
+      }
+
     }
 
     describe("Filter tags") {
@@ -141,6 +145,10 @@ class ClientTest extends FunSpec with Matchers with BeforeAndAfterAll{
       it("empty") {
         Await.result(client.filterTagsByRow(rowId3)).map(x => x._1) should be('empty)
         Await.result(client.filterTagsByRow(rowId4)).map(x => x._1) should be('empty)
+      }
+
+      it("non exists row id") {
+        Await.result(client.filterTagsByRow(-1)).map(x => x._1) should be('empty)
       }
 
     }
