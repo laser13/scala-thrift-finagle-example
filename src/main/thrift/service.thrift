@@ -1,4 +1,4 @@
-namespace scala ru.pavlenov.thrift
+#@namespace scala ru.pavlenov.thrift
 
 exception InvalidOperation {
   1: required string message

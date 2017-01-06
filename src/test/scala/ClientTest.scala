@@ -45,7 +45,7 @@ class ClientTest extends FunSpec with Matchers with BeforeAndAfterAll{
   }
 
   implicit val testModule = mockModule :: new BootModule
-  val address: SocketAddress = new InetSocketAddress("localhost", 8888)
+  val address: InetSocketAddress = new InetSocketAddress("localhost", 8888)
 
   val server = new Server(address)
 

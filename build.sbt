@@ -1,10 +1,10 @@
 name := "scala-thrift-finagle-example"
 
-version := "1.0"
+version := "2.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.1"
 
-val scroogeCore = "com.twitter" %% "scrooge-core" % "4.2.0"
+val scroogeCore = "com.twitter" %% "scrooge-core" % "4.13.0"
 
 resolvers ++= Seq(
   "twitter" at "http://maven.twttr.com",
@@ -12,27 +12,14 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.apache.thrift" % "libthrift" % "0.9.3",
-  "com.twitter" %% "finagle-thrift" % "6.30.0",
-  "org.scaldi" %% "scaldi" % "0.5.6",
+  "com.twitter" %% "finagle-thrift" % "6.41.0",
+  "org.scaldi" %% "scaldi" % "0.5.8",
 
   // Тестирование
-  "org.scalatest" %% "scalatest" % "3.0.0-M11" % "test",
-  "org.scalacheck" %% "scalacheck" % "1.12.5" % "test")
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.13.4" % "test")
 
 ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
-
-// These options will be used for *all* versions.
-scalacOptions ++= Seq(
-  "-deprecation"
-  ,"-unchecked"
-  ,"-encoding", "UTF-8"
-  ,"-Xlint"
-  ,"-Yclosure-elim"
-  ,"-Yinline"
-  ,"-Xverify"
-  ,"-feature"
-  ,"-language:postfixOps"
-)
 
 javacOptions in Compile ++= Seq(
   "-source", "1.8", "-target", "1.8",
